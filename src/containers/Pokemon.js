@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 import { GetPokemon } from '../actions/pokemonActions';
 
 const Pokemon = props => {
