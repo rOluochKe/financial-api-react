@@ -29,8 +29,7 @@ const PokemonList = props => {
       return (
         <div className="list-wrapper">
           {pokemonList.data.map(el => (
-            // eslint-disable-next-line react/jsx-key
-            <div className="pokemon-item">
+            <div className="pokemon-item" key="{el.name}">
               <p>{el.name}</p>
               <Link to={`/pokemon/${el.name}`}>View</Link>
             </div>
@@ -68,7 +67,7 @@ const PokemonList = props => {
 };
 
 PokemonList.propTypes = {
-  history: PropTypes.isRequired,
+  history: PropTypes.func.isRequired,
 };
 
 export default PokemonList;

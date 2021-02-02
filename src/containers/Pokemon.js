@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
@@ -29,7 +28,7 @@ const Pokemon = props => {
           <div className="item">
             <h1>Stats</h1>
             {pokeData.stats.map(el => (
-              <p key={el.stat.name}>
+              <p key="{el.stat.name}">
                 {el.stat.name}
                 {' '}
                 {el.base_stat}
@@ -38,7 +37,7 @@ const Pokemon = props => {
           </div>
           <div className="item">
             <h1>Abilities</h1>
-            {pokeData.abilities.map(el => <p>{el.ability.name}</p>)}
+            {pokeData.abilities.map(el => <p key="{el.ability.name}">{el.ability.name}</p>)}
           </div>
         </div>
       );
