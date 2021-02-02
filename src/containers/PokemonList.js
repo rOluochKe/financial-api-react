@@ -1,8 +1,10 @@
+/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import PropTypes from 'prop-types';
 import { GetPokemonList } from '../actions/pokemonActions';
 
 const PokemonList = props => {
@@ -10,6 +12,7 @@ const PokemonList = props => {
   const dispatch = useDispatch();
   const pokemonList = useSelector(state => state.PokemonList);
   React.useEffect(() => {
+    // eslint-disable-next-line no-use-before-define
     FetchData(1);
   }, []);
 
@@ -26,6 +29,7 @@ const PokemonList = props => {
       return (
         <div className="list-wrapper">
           {pokemonList.data.map(el => (
+            // eslint-disable-next-line react/jsx-key
             <div className="pokemon-item">
               <p>{el.name}</p>
               <Link to={`/pokemon/${el.name}`}>View</Link>
@@ -61,6 +65,10 @@ const PokemonList = props => {
       )}
     </div>
   );
+};
+
+PokemonList.propTypes = {
+  history: PropTypes.isRequired,
 };
 
 export default PokemonList;
